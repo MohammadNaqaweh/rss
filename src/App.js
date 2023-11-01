@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './App.css';
 import { JobPost } from './components';
+import MapContainer from './components/MapContainer/MapContainer';
 
 function App() {
   const [jobPosts , setJobPosts] = useState([]);
@@ -29,6 +30,7 @@ function App() {
           item={item}
         />
       ))}
+      <MapContainer />
     </div>
   );
 }
