@@ -6,7 +6,7 @@ import MapContainer from './components/MapContainer/MapContainer';
 
 function App() {
   const [jobPosts , setJobPosts] = useState([]);
-  const [coordinates ,setCoordinates] = useState([]);
+  const [coordinates ,setCoordinates] = useState();
 
   useEffect(() => {
     getJobPosts(setJobPosts);
@@ -14,7 +14,6 @@ function App() {
   
   useEffect(() => {
     getCoordinates(jobPosts,setCoordinates);
-    console.log(coordinates);
   },[jobPosts])
 
   return (
