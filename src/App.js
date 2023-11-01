@@ -6,8 +6,7 @@ import MapContainer from './components/MapContainer/MapContainer';
 
 function App() {
   const [jobPosts , setJobPosts] = useState([]);
-  
-  console.log(jobPosts);
+  const [countries , setCountries] =useState({});
 
   const getJobPosts = async () => {
     try{
@@ -18,9 +17,25 @@ function App() {
     }
   }
 
+  const getCountries = (jobPosts) => {
+    let countries = {};
+    jobPosts.forEach((item) =>{
+      const country = item.item.country;
+      if(!countries.hasOwnProperty(country)){
+        countries[country] = [];
+      }
+      countries[country].push(item);
+    })
+    setCountries(countries);
+  }
+
   useEffect(() => {
     getJobPosts();
   },[])
+
+  useEffect(() => {
+    getCountries(jobPosts);
+  },[jobPosts])
   
   return (
     <div className='jobPosts__table'>
@@ -30,7 +45,7 @@ function App() {
           item={item}
         />
       ))}
-      <MapContainer />
+      <MapContainer items={countries}/>
     </div>
   );
 }
