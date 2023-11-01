@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './App.css';
 import { JobPost } from './components';
+import {getCountries} from './api/APIUtils.js'
 import MapContainer from './components/MapContainer/MapContainer';
 
 function App() {
   const [jobPosts , setJobPosts] = useState([]);
-  const [countries , setCountries] =useState({});
+  const [coordinates ,setCoordinates] = useState([]);
 
   const getJobPosts = async () => {
     try{
@@ -17,26 +18,30 @@ function App() {
     }
   }
 
-  const getCountries = (jobPosts) => {
-    let countries = {};
-    jobPosts.forEach((item) =>{
-      const country = item.item.country;
-      if(!countries.hasOwnProperty(country)){
-        countries[country] = [];
+  const getCoordinates = async (jobPosts) => {
+    const c = [];
+    const countries = getCountries(jobPosts);
+    countries.forEach(async (country) => {
+      try {
+        const res = await axios.get(`http://localhost:4000/countryCoordinates`, {
+          params: {country: country}
+        })
+        c.push(res.data);
+      } catch (error) {
+        console.log(error);
       }
-      countries[country].push(item);
     })
-    setCountries(countries);
+    setCoordinates(c);
   }
 
   useEffect(() => {
     getJobPosts();
   },[])
-
-  useEffect(() => {
-    getCountries(jobPosts);
-  },[jobPosts])
   
+  useEffect(() => {
+    getCoordinates(jobPosts);
+  },[jobPosts])
+
   return (
     <div className='jobPosts__table'>
       {jobPosts.map((item, index) => (
@@ -45,7 +50,7 @@ function App() {
           item={item}
         />
       ))}
-      <MapContainer items={countries}/>
+      <MapContainer jobPosts={jobPosts} coordinates={coordinates}/>
     </div>
   );
 }
