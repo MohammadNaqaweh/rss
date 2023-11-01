@@ -1,11 +1,12 @@
-import React, {Component} from 'react'
+import React, {Component ,useState} from 'react'
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+import axios from 'axios'; 
 
 export class MapContainer extends Component {
   render() {
     const style = {
-      width: '300px',
-      height: '300px',
+      // width: '300px',
+      // height: '300px',
     }
 
     const containerStyle = {
@@ -19,6 +20,12 @@ export class MapContainer extends Component {
         style={style}
         containerStyle={containerStyle}
       >
+        {this.props.coordinates.map((c,i) => (
+          <Marker 
+            key={i}
+            position={{lat: c.lat, lng: c.lng}}
+          />
+        ))}
 
       </Map>
     );
