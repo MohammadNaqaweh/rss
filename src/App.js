@@ -10,7 +10,7 @@ function App() {
 
   const getJobPosts = async () => {
     try{
-      const res = await axios.get("http://localhost:4000/");
+      const res = await axios.get("http://localhost:4000/jobPosts");
       setJobPosts(res.data);
     } catch (e) {
       console.log(e);
