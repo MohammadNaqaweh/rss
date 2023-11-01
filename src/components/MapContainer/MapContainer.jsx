@@ -1,6 +1,5 @@
-import React, {Component ,useState} from 'react'
+import React, {Component} from 'react'
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
-import axios from 'axios'; 
 
 export class MapContainer extends Component {
   render() {
@@ -16,9 +15,10 @@ export class MapContainer extends Component {
     return (
       <Map 
         google={this.props.google}
-        zoom={14}
+        zoom={4}
         style={style}
         containerStyle={containerStyle}
+        initialCenter={{lat: 37, lng: 37}}
       >
         {this.props.coordinates.map((c,i) => (
           <Marker 
