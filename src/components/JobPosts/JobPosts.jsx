@@ -7,7 +7,7 @@ const JobPosts = ({ jobPosts }) => {
     flexWrap: "wrap",
   }
   return (
-    <div style={style}>
+    <div style={style} id='home'>
       {jobPosts.map((item, index) => (
         <JobPost 
           key={index}

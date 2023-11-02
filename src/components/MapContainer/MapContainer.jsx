@@ -38,34 +38,36 @@ export class MapContainer extends Component {
     }
     
     return (
-      <Map 
-        google={this.props.google}
-        zoom={4}
-        style={style}
-        containerStyle={containerStyle}
-        initialCenter={{lat: 37, lng: 37}}
-        scrollwheel={false}
-        mapTypeControl={false}
-        streetViewControl={false}
-        onClick={this.onMapClicked}
-      >
-        {this.props.coordinates.map((c,i) => (
-          <Marker
-            key={i}
-            name={c.country}
-            position={{lat: c.lat, lng: c.lng}}
-            onClick={this.onMarkerClick}
-          />
-        ))}
-
-        <InfoWindowWrapper
-          marker={this.state.activeMarker}
-          visible={this.state.showingInfoWindow}
+      <div id='map'>
+        <Map 
+          google={this.props.google}
+          zoom={4}
+          style={style}
+          containerStyle={containerStyle}
+          initialCenter={{lat: 37, lng: 37}}
+          scrollwheel={false}
+          mapTypeControl={false}
+          streetViewControl={false}
+          onClick={this.onMapClicked}
         >
-          <MapPopUp jobPosts={getJobPostsByCountry(this.props.jobPosts, this.state.selectedPlace.name)}/>
-        </InfoWindowWrapper>
+          {this.props.coordinates.map((c,i) => (
+            <Marker
+              key={i}
+              name={c.country}
+              position={{lat: c.lat, lng: c.lng}}
+              onClick={this.onMarkerClick}
+            />
+          ))}
 
-      </Map>
+          <InfoWindowWrapper
+            marker={this.state.activeMarker}
+            visible={this.state.showingInfoWindow}
+          >
+            <MapPopUp jobPosts={getJobPostsByCountry(this.props.jobPosts, this.state.selectedPlace.name)}/>
+          </InfoWindowWrapper>
+
+        </Map>
+      </div>
     );
   }
 }
