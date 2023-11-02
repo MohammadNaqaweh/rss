@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import { JobPost } from './components';
-import {getJobPosts ,getCoordinates} from './api/APIUtils.js'
+import {getJobPosts, getCoordinates} from './api/APIUtils.js'
 import MapContainer from './components/MapContainer/MapContainer';
 
 function App() {
