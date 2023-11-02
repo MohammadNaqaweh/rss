@@ -21,7 +21,7 @@ It uses a simple backend service that fetches the jobs from an RSS Feed and pass
 }
 ```
 
-2. `countryCoordinates`
+2. `getCoordinates`
 
     Takes query parameter of `country name` and returns and object that look like:
 

@@ -28,7 +28,7 @@ export const getCoordinates = async (jobPosts ,setCoordinates) => {
   const countries = getCountries(jobPosts);
   countries.forEach(async (country) => {
     try {
-      const res = await axios.get(`${config.development.endpoint}/countryCoordinates`, {
+      const res = await axios.get(`${config.development.endpoint}/getCoordinates`, {
         params: {country: country}
       })
       c.push(res.data);
