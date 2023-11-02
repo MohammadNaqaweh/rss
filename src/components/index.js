@@ -4,3 +4,4 @@ export { default as Title } from './Title/Title';
 export { default as JobInfo } from './JobInfo/JobInfo';
 export { default as MapPopUp } from './MapPopUp/MapPopUp';
 export { default as InfoWindowWrapper } from './InfoWindowWrapper/InfoWindowWrapper';
+export { default as JobPosts } from './JobPosts/JobPosts';

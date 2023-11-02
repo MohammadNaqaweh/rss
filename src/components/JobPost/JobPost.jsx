@@ -13,8 +13,8 @@ const JobPost = ({ item }) => {
   const link = item.item.link;
 
   return (
-    <>
-      <Card style={{width:"300px", margin:"10px"}}>
+    <div>
+      <Card style={{width:"300px", height: "200px", margin:"10px"}}>
         <Card.Body>
           <Card.Title>{title}</Card.Title>
           <Card.Text>{country} {postedDate}</Card.Text>
@@ -40,7 +40,7 @@ const JobPost = ({ item }) => {
       >
         <PopUp title={title} country={country} postedDate={postedDate} description={description} link={link}/>
       </ReactModel>
-    </>
+    </div>
   )
 }
 

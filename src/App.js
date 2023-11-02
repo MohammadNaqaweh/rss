@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import { JobPost } from './components';
+import { JobPosts } from './components';
 import {getJobPosts, getCoordinates} from './api/APIUtils.js'
 import MapContainer from './components/MapContainer/MapContainer';
 
@@ -17,13 +17,8 @@ function App() {
   },[jobPosts])
 
   return (
-    <div className='jobPosts__table'>
-      {jobPosts.map((item, index) => (
-        <JobPost 
-          key={index}
-          item={item}
-        />
-      ))}
+    <div>
+      <JobPosts jobPosts={jobPosts}/>
       <MapContainer jobPosts={jobPosts} coordinates={coordinates}/>
     </div>
   );
