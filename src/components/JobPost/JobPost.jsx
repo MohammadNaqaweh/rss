@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { PopUp,Title,JobInfo } from '../index.js';
+import { PopUp } from '../index.js';
 import ReactModel from 'react-modal';
-import './jobpost.css'
+import { Button, Card } from 'react-bootstrap';
 
 const JobPost = ({ item }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,10 +14,13 @@ const JobPost = ({ item }) => {
 
   return (
     <>
-      <div className='jobPosts__table-post section__margin section__padding' onClick={() => setIsOpen(true)}>
-        <Title title={title} />
-        <JobInfo country={country} postedDate={postedDate} />
-      </div>
+      <Card style={{width:"300px", margin:"10px"}}>
+        <Card.Body>
+          <Card.Title>{title}</Card.Title>
+          <Card.Text>{country} {postedDate}</Card.Text>
+          <Button onClick={() => setIsOpen(true)}>See More</Button>
+        </Card.Body>
+      </Card>
       <ReactModel
         isOpen={isOpen}
         contentLabel='example'
