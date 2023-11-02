@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+# Job Search Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simple **React App** that displays Job Posts in 2 view **(List and Map)**.
 
-## Available Scripts
+It uses a simple backend service that fetches the jobs from an RSS Feed and passes it to the frontend service where it is minupluated and displaied in the 2 views accordingly.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+### Backend Service provides 2 APIs:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. `jobPosts`
+    
+    Returns an **Array of Objects** after parsing the RSS Feed. The returned Objects look like:
+```
+{
+  "title": "Title of the Job Post",
+  "country": "Country of the Job Post",
+  "posted_date": "The date the job was posted"
+  "description": "An HTML String",
+  "link": "link to the job post"
+}
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+2. `countryCoordinates`
 
-### `npm test`
+    Takes query parameter of `country name` and returns and object that look like:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+{
+  "lat": "The latitude",
+  "lng": "The longitude",
+  "country": "The country name"
+}
+```
 
-### `npm run build`
+# Running the Website
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. checkout rss-server from: <!--- TODO: add github URL -->
+2. go to rss-server
+3. run `npm start` inside the rss-server package
+4. ensure that the server is running correctly by seeing `App is active` in the rss-server terminal.
+5. run `npm start` inside react app terminal.
+6. go to `http://localhost:3000/`
