@@ -1,8 +1,0 @@
-.jobPosts__table-post_info {
-  display: flex;
-  flex-direction: row;
-}
-
-.jobPosts__table-post_info p{
-  font-size: 16px;
-}
