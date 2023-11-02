@@ -20,6 +20,8 @@ export class MapContainer extends Component {
         containerStyle={containerStyle}
         initialCenter={{lat: 37, lng: 37}}
         scrollwheel={false}
+        mapTypeControl={false}
+        streetViewControl={false}
       >
         {this.props.coordinates.map((c,i) => (
           <Marker 
