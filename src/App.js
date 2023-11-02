@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import { JobPosts } from './components';
+import { JobPosts, Navigation } from './components';
 import {getJobPosts, getCoordinates} from './api/APIUtils.js'
 import MapContainer from './components/MapContainer/MapContainer';
 
@@ -18,6 +18,7 @@ function App() {
 
   return (
     <div>
+      <Navigation />
       <JobPosts jobPosts={jobPosts}/>
       <MapContainer jobPosts={jobPosts} coordinates={coordinates}/>
     </div>
