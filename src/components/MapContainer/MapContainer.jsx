@@ -1,6 +1,7 @@
-import React, {Component} from 'react'
-import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
-import {getJobPostsByCountry} from '../../api/APIUtils.js'
+import React, { Component } from 'react'
+import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
+import { getJobPostsByCountry } from '../../api/APIUtils.js';
+import { MapPopUp, InfoWindowWrapper } from '../index.js';
 
 export class MapContainer extends Component {
   state = {
@@ -57,14 +58,12 @@ export class MapContainer extends Component {
           />
         ))}
 
-        <InfoWindow
+        <InfoWindowWrapper
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}
         >
-          {getJobPostsByCountry(this.props.jobPosts, this.state.selectedPlace.name).map((job, i)=>(
-            <p>{job.title}</p>
-          ))}
-        </InfoWindow>
+          <MapPopUp jobPosts={getJobPostsByCountry(this.props.jobPosts, this.state.selectedPlace.name)}/>
+        </InfoWindowWrapper>
 
       </Map>
     );
