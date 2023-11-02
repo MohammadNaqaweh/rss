@@ -16,7 +16,7 @@ const getCountries = (jobPosts) => {
 
 export const getJobPosts = async (setJobPosts) => {
   try{
-    const res = await axios.get(`${config.development.endpoint}/jobPosts`);
+    const res = await axios.get(`${config.development.endpoint}/getJobPosts`);
     setJobPosts(res.data);
   } catch (e) {
     console.log(e);

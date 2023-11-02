@@ -8,7 +8,7 @@ It uses a simple backend service that fetches the jobs from an RSS Feed and pass
 
 ### Backend Service provides 2 APIs:
 
-1. `jobPosts`
+1. `getJobPosts`
     
     Returns an **Array of Objects** after parsing the RSS Feed. The returned Objects look like:
 ```
