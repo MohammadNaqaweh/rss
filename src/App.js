@@ -7,6 +7,7 @@ import MapContainer from './components/MapContainer/MapContainer';
 function App() {
   const [jobPosts , setJobPosts] = useState([]);
   const [coordinates ,setCoordinates] = useState();
+  const [view, setView] = useState('List');
 
   useEffect(() => {
     getJobPosts(setJobPosts);
@@ -18,9 +19,9 @@ function App() {
 
   return (
     <div>
-      <Navigation />
-      <JobPosts jobPosts={jobPosts}/>
-      <MapContainer jobPosts={jobPosts} coordinates={coordinates}/>
+      <Navigation setView={setView}/>
+      {view === "List" && <JobPosts jobPosts={jobPosts}/>}
+      {view === "Map" && <MapContainer jobPosts={jobPosts} coordinates={coordinates}/>}
     </div>
   );
 }
