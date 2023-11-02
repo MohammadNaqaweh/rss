@@ -1,4 +1,7 @@
 import axios from 'axios';
+import config from '../config.json'
+
+
 
 const getCountries = (jobPosts) => {
   let countries = [];
@@ -13,7 +16,7 @@ const getCountries = (jobPosts) => {
 
 export const getJobPosts = async (setJobPosts) => {
   try{
-    const res = await axios.get("http://localhost:4000/jobPosts");
+    const res = await axios.get(`${config.development.endpoint}/jobPosts`);
     setJobPosts(res.data);
   } catch (e) {
     console.log(e);
@@ -25,7 +28,7 @@ export const getCoordinates = async (jobPosts ,setCoordinates) => {
   const countries = getCountries(jobPosts);
   countries.forEach(async (country) => {
     try {
-      const res = await axios.get(`http://localhost:4000/countryCoordinates`, {
+      const res = await axios.get(`${config.development.endpoint}/countryCoordinates`, {
         params: {country: country}
       })
       c.push(res.data);
@@ -43,6 +46,5 @@ export const getJobPostsByCountry = (jobPosts, country) => {
       jobs.push(job.item);
     }
   });
-  console.log(jobs);
   return jobs;
 }

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
 import { getJobPostsByCountry } from '../../api/APIUtils.js';
 import { MapPopUp, InfoWindowWrapper } from '../index.js';
+import config from '../../config.json'
 
 export class MapContainer extends Component {
   state = {
@@ -28,22 +29,13 @@ export class MapContainer extends Component {
   };
 
   render() {
-    const style = {
-      // width: '300px',
-      // height: '300px',
-    }
 
-    const containerStyle = {
-      
-    }
     
     return (
       <div id='map'>
         <Map 
           google={this.props.google}
           zoom={4}
-          style={style}
-          containerStyle={containerStyle}
           initialCenter={{lat: 37, lng: 37}}
           scrollwheel={false}
           mapTypeControl={false}
@@ -73,5 +65,5 @@ export class MapContainer extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: "AIzaSyATnarUvXaKwbm_bFefQ6ePe5INvsCZppY"
+  apiKey: config.development.googleMapsApiKey
 })(MapContainer)
