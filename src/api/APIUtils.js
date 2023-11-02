@@ -35,3 +35,14 @@ export const getCoordinates = async (jobPosts ,setCoordinates) => {
   })
   setCoordinates(c);
 }
+
+export const getJobPostsByCountry = (jobPosts, country) => {
+  const jobs = []
+  jobPosts.forEach((job) => {
+    if(job.item.country === country){
+      jobs.push(job.item);
+    }
+  });
+  console.log(jobs);
+  return jobs;
+}
