@@ -27,7 +27,7 @@ The frontend is written in React and uses react-bootstrap package for styled com
 
 2. `getCoordinates`
 
-    Takes query parameter of `country name` and returns and object that look like:
+    Takes query parameter of `country` which is the country name and returns an object that looks like:
 
 ```
 {
