@@ -41,7 +41,7 @@ The frontend is written in React and uses react-bootstrap package for styled com
 
 ### The website use react-bootstrap components for rendering coustome components
 
-# Running the Website
+# Running the Website locally
 
 ### To run the website first we need to run the backend services to do that
 
@@ -58,5 +58,6 @@ After this we can strat the React website:
 2. clone the react app Repo: `git clone https://github.com/MohammadNaqaweh/rss.git`
 3. `cd rss`
 4. `yarn install` to install all dependancies in the project
-5. `npm start` to start the webpage
-6. go to `http://localhost:3000/`
+5. add a `.env` file that contains a key value pair of the google maps API-key named `REACT_APP_API_KEY = your google maps api key`. [Generte your API key](https://developers.google.com/maps/documentation/javascript/get-api-key)
+6. `npm start` to start the webpage
+7. go to `http://localhost:3000/`
