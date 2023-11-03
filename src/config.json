@@ -1,6 +1,5 @@
 {
   "development":{
-    "endpoint": "http://localhost:4000",
-    "googleMapsApiKey": "AIzaSyATnarUvXaKwbm_bFefQ6ePe5INvsCZppY"
+    "endpoint": "http://localhost:4000"
   }
 }
