@@ -4,6 +4,10 @@ This is a simple **React App** that displays Job Posts in 2 view **(List and Map
 
 It uses a simple backend service [rss-server](https://github.com/MohammadNaqaweh/rss-server.git) that fetches the jobs from an RSS Feed and passes it to the frontend service where it is minupluated and displayed in the 2 views accordingly.
 
+The backend service is written in javascript (node.js framework) and uses express and cors to setup the routes for the APIs.
+
+The frontend is written in React and uses react-bootstrap package for styled components, axios for the API calls, and google-maps-react.
+
 ---
 
 ### Backend Service provides 2 APIs: 
